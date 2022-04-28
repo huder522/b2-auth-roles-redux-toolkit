@@ -20,10 +20,13 @@ export const userSlice = createSlice({
     signIn: ( state, action: PayloadAction<User> ) => {
       state.isAuthCheck = true;
       state.user = action.payload;
+    },
+    setAuthCheck: ( state ) => {
+      state.isAuthCheck = true;
     }
   }
 });
 
 
 export default userSlice.reducer;
-export const { signIn } = userSlice.actions;
+export const { signIn, setAuthCheck } = userSlice.actions;
