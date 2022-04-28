@@ -6,6 +6,8 @@ import { AuthRoutes } from './dashboards/AuthRoutes';
 import { UsersRoutes } from './dashboards/UsersRoutes';
 import { AppDispatch, RootState } from '../state/store';
 import { startRevalidateAuth } from '../state/slices/user/userThunks';
+import { PublicRoute } from './protected/PublicRoute';
+import { PrivateRoute } from './protected/PrivateRoute';
 
 
 export const AppRouter = () => {
@@ -24,8 +26,15 @@ export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="auth/*" element={ <AuthRoutes />} />
+
+        <Route element={ <PublicRoute /> } >
+          <Route path="auth/*" element={ <AuthRoutes />} />
+        </Route>
+
+        <Route element={ <PrivateRoute /> } >
           <Route path="/*" element={ <UsersRoutes /> } />
+        </Route>
+        
       </Routes>
     </BrowserRouter>
   )
