@@ -1,5 +1,8 @@
 import { FormEvent } from 'react'
+import { useDispatch } from 'react-redux';
 import { useForm } from '../../hooks/useForm'
+import { startSignin } from '../../state/slices/user/userThunks';
+import { AppDispatch } from '../../state/store';
 
 
 interface FormData {
@@ -15,8 +18,11 @@ export const SigninPage = () => {
   const { formValues, handleInputChange } = useForm( initialForm );
   const { email, password } = formValues;
 
+  const dispatch: AppDispatch = useDispatch();
+
   const handleSubmit = ( e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    dispatch( startSignin( email, password ) );
   }
 
   return (

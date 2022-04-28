@@ -1,7 +1,7 @@
 
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
-export const fetchWithoutToken = ( endpoint: string, data: any, method: Method = 'GET' ) => {
+export const fetchWithoutToken = ( endpoint: string, data?: any, method: Method = 'GET' ) => {
 
   const url: string = `${process.env.REACT_APP_API_URL}${endpoint}`;
 
@@ -18,7 +18,7 @@ export const fetchWithoutToken = ( endpoint: string, data: any, method: Method =
   }
 }
 
-export const fetchWithToken = ( endpoint: string, data: any, method: Method = 'GET' ) => {
+export const fetchWithToken = ( endpoint: string, data?: any, method: Method = 'GET' ) => {
 
   const url: string = `${process.env.REACT_APP_API_URL}${endpoint}`;
   const token: string = localStorage.getItem('auth-app-token') || '';
