@@ -21,12 +21,15 @@ export const userSlice = createSlice({
       state.isAuthCheck = true;
       state.user = action.payload;
     },
+    signOut: ( state ) => {
+      state.user = null;
+    },
     setAuthCheck: ( state ) => {
       state.isAuthCheck = true;
-    }
+    },
   }
 });
 
 
 export default userSlice.reducer;
-export const { signIn, setAuthCheck } = userSlice.actions;
+export const { signIn, setAuthCheck, signOut } = userSlice.actions;

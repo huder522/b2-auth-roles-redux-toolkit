@@ -1,7 +1,7 @@
 import { AppDispatch } from '../../store';
 import { fetchWithoutToken, fetchWithToken } from '../../../utils/fetch';
 import { RevalidateAuthResponse, SigninResponse } from '../../../models/auth-responses';
-import { setAuthCheck, signIn } from './userSlice';
+import { setAuthCheck, signIn, signOut } from './userSlice';
 import { transformToUser } from '../../../adapters/transformToUser';
 
 export const startSignin = ( email: string, password: string) => {
@@ -21,6 +21,13 @@ export const startSignin = ( email: string, password: string) => {
     } catch (err) {
       alert('something went wrong!')
     }
+  }
+}
+
+export const startSignout = () => {
+  return ( dispatch: AppDispatch ) => {
+    localStorage.removeItem('auth-app-token');
+    dispatch( signOut() );
   }
 }
 
