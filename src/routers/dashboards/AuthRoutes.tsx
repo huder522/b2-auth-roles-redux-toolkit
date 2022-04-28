@@ -9,11 +9,13 @@ import { SignupPage } from '../../pages/auth/SignupPage';
 export const AuthRoutes = () => {
   return (
     <>
-      <Routes>
-        <Route path="signin" element={ <SigninPage /> } />
-        <Route path="signup" element={ <SignupPage /> } />
-        <Route path="*" element={ <Navigate to="/auth/signin" />  } />
-      </Routes>
+      <div className="auth-container">
+        <Routes>
+          <Route path="signin" element={ <SigninPage /> } />
+          <Route path="signup" element={ <SignupPage /> } />
+          <Route path="*" element={ <Navigate to="/auth/signin" />  } />
+        </Routes>
+      </div>
     </>
   )
 }
