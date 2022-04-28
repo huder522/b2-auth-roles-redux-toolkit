@@ -1,6 +1,6 @@
 import { AppDispatch } from '../../store';
 import { fetchWithoutToken, fetchWithToken } from '../../../utils/fetch';
-import { RevalidateAuthResponse, SigninResponse } from '../../../interfaces/auth-responses';
+import { RevalidateAuthResponse, SigninResponse } from '../../../models/auth-responses';
 import { setAuthCheck, signIn } from './userSlice';
 import { transformToUser } from '../../../adapters/transformToUser';
 

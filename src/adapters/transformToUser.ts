@@ -1,5 +1,5 @@
-import { RevalidateAuthResponse, SigninResponse } from "../interfaces/auth-responses";
-import { User } from "../interfaces/user-slice";
+import { RevalidateAuthResponse, SigninResponse } from "../models/auth-responses";
+import { User } from "../models/others";
 
 export const transformToUser = 
   ( response: SigninResponse | RevalidateAuthResponse): User => {
